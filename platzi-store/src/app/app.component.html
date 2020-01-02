@@ -1,2 +1,18 @@
 <input type="text" [(ngModel)]="title">
 {{ title }}
+
+<div *ngIf="title === 'hector'">
+  Esto es un div que aparece cuando en el form dice "hector"
+</div>
+
+<div *ngIf="1+1 === 2">
+  Esto es un valor que suma 2
+</div>
+
+<div *ngIf="'Hector' !== 'Daniel'">
+  Mi nombre es Hector Daniel
+</div>
+
+<ul>
+  <li *ngFor="let name "></li>
+</ul>
