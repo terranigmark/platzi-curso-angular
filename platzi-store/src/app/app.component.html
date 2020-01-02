@@ -1,18 +1,25 @@
 <input type="text" [(ngModel)]="title">
 {{ title }}
 
-<div *ngIf="title === 'hector'">
-  Esto es un div que aparece cuando en el form dice "hector"
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'hector'">este es hector</p>
+  <p *ngSwitchCase="'camilo'">este es camilo</p>
+  <p *ngSwitchCase="'julian'">este es julian</p>
+  <p *ngSwitchDefault>no hay match</p>
 </div>
 
-<div *ngIf="1+1 === 2">
-  Esto es un valor que suma 2
-</div>
-
-<div *ngIf="'Hector' !== 'Daniel'">
-  Mi nombre es Hector Daniel
-</div>
+<button (click)="addItem()">Add item</button>
 
 <ul>
-  <li *ngFor="let name "></li>
+  <li *ngIf="items.length === 0">la lista esta vacia</li>
+  <li *ngFor="let name of items; index as i">
+    {{ name }} {{ i }}
+    <button (click)="deleteItem(i)">delete</button>
+  </li>
 </ul>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" alt="">
+  {{ product.price }}
+</div>
